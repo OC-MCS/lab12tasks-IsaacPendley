@@ -7,7 +7,24 @@ using namespace std;
 bool isBalanced(string s)
 {
 	// replace the body of this function 
-	return true;
+	vector<char> balance;
+	for (int i = 0; i < s.length(); i++)
+	{
+		if (s[i] == '(') {
+			balance.push_back('(');
+		}
+		else {
+			if (balance.size() > 0)
+			{
+				balance.pop_back();
+			}
+			else {
+				return false;
+			}
+		}
+	}
+
+	return (balance.size() == 0);
 }
 
 int main()
